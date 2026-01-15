@@ -38,10 +38,19 @@ void OnTick()
 //| Timer function                                                   |
 //+------------------------------------------------------------------+
 void OnTimer()
-  {
+{
 //---
+   //string fileName = "signals.json";
+   string fileName = "C:\Users\naide\AppData\Roaming\MetaQuotes\Terminal\930119AA53207C8778B41171FBFFB46F\MQL5\Files\signals.json";
+   int handle = FileOpen(fileName, FILE_READ|FILE_TXT);
+   Print("Hanlder:", handle);
+   if(handle == INVALID_HANDLE)
+   {
+      Print("Failed to open file: ", fileName);
+      return;
+   }
    
-  }
+}
 //+------------------------------------------------------------------+
 //| Trade function                                                   |
 //+------------------------------------------------------------------+

@@ -1,2 +1,14 @@
-{
-}
+[
+  {
+    "id": 1,
+    "symbol": "EURUSD",
+    "action": "BUY",
+    "volume": 0.1
+  },
+  {
+    "id": 2,
+    "symbol": "USDJPY",
+    "action": "SELL",
+    "volume": 0.2
+  }
+]
