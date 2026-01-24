@@ -1,3 +1,6 @@
-{"id": 1, "symbol": "EURUSD", "action": "BUY", "volume": 0.1}
-{"id": 2, "symbol": "EURUSD", "action": "BUY", "volume": 0.2}
-{"id": 1, "symbol": "EURUSD", "action": "BUY", "volume": 0.1}
+{"id": 1769272800, "symbol": "US500", "action": "BUY", "volume": 0.1, "stoploss": 0.0}
+{"id": 1769272866, "symbol": "US500", "action": "SELL", "volume": 0.1, "stoploss": 0.0}
+{"id": 1769272889, "symbol": "US500", "action": "SELL", "volume": 0.01, "stoploss": 0.0}
+{"id": 1769272897, "symbol": "US500", "action": "SELL", "volume": 0.001, "stoploss": 0.0}
+{"id": 1769272920, "symbol": "US500", "action": "SELL", "volume": 0.009, "stoploss": 0.0}
+{"id": 1769272933, "symbol": "US500", "action": "SELL", "volume": 0.02, "stoploss": 0.0}
