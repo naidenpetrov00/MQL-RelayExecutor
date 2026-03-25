@@ -1,6 +1,1 @@
-{"id": 1769272800, "symbol": "US500", "action": "BUY", "volume": 0.1, "stoploss": 0.0}
-{"id": 1769272866, "symbol": "US500", "action": "SELL", "volume": 0.1, "stoploss": 0.0}
-{"id": 1769272889, "symbol": "US500", "action": "SELL", "volume": 0.01, "stoploss": 0.0}
-{"id": 1769272897, "symbol": "US500", "action": "SELL", "volume": 0.001, "stoploss": 0.0}
-{"id": 1769272920, "symbol": "US500", "action": "SELL", "volume": 0.009, "stoploss": 0.0}
-{"id": 1769272933, "symbol": "US500", "action": "SELL", "volume": 0.02, "stoploss": 0.0}
+{"id": 1774470616304, "type": "READY", "received_at": "2026-03-25T20:30:16.304544+00:00", "symbol": "US500", "action": "BUY", "crossedPrice": 6579.5, "stoploss": 6588.7, "positionQuantity": 3}
