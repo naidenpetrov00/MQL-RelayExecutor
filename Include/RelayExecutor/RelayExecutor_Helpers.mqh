@@ -19,6 +19,45 @@ bool ShouldMoveToBe(string action,double moveToBePrice,double bid, double ask)
    return false;
   }
 //+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+bool HasOpenPosition(string symbol)
+  {
+   int total = PositionsTotal();
+
+   for(int i = 0; i < total; i++)
+     {
+      ulong ticket = PositionGetTicket(i);
+      if(PositionSelectByTicket(ticket))
+        {
+         if(PositionGetString(POSITION_SYMBOL) == symbol)
+            return true;
+        }
+     }
+
+   return false;
+  }
+//+------------------------------------------------------------------+
+void SplitVolume(double totalVolume, double step, int parts, double &result[])
+  {
+   int totalSteps = (int)MathRound(totalVolume / step);
+
+   int baseSteps = totalSteps / parts;
+   int remainder = totalSteps % parts;
+
+   ArrayResize(result, parts);
+
+   for(int i = 0; i < parts; i++)
+     {
+      int steps = baseSteps;
+
+      if(i >= parts - remainder)
+         steps += 1;
+
+      result[i] = NormalizeDouble(steps * step, 2);
+     }
+  }
+//+------------------------------------------------------------------+
 string ReadFile(string fileName)
   {
    int handle = FileOpen(
@@ -43,24 +82,3 @@ string ReadFile(string fileName)
 
    return lastJson;
   }
-//+------------------------------------------------------------------+
-void SplitVolume(double totalVolume, double step, int parts, double &result[])
-  {
-   int totalSteps = (int)MathRound(totalVolume / step);
-
-   int baseSteps = totalSteps / parts;
-   int remainder = totalSteps % parts;
-
-   ArrayResize(result, parts);
-
-   for(int i = 0; i < parts; i++)
-     {
-      int steps = baseSteps;
-
-      if(i >= parts - remainder)
-         steps += 1;
-
-      result[i] = NormalizeDouble(steps * step, 2);
-     }
-  }
-//+------------------------------------------------------------------+
