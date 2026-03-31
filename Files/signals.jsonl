@@ -1,3 +1,1 @@
-{"id": 1774791068145, "type": "READY", "received_at": "2026-03-29T13:31:08.145262+00:00", "symbol": "DOGEUSD", "action": "SELL", "crossedPrice": 0.09019, "stoploss": 0.09019, "takeProfit": 0.08819, "positionQuantity": 2}
-{"id": 1774791070173, "type": "READY", "received_at": "2026-03-29T13:31:10.173372+00:00", "symbol": "DOGEUSD", "action": "SELL", "crossedPrice": 0.09019, "stoploss": 0.09019, "takeProfit": 0.08819, "positionQuantity": 2}
-{"id": 1774791122022, "type": "READY", "received_at": "2026-03-29T13:32:02.022234+00:00", "symbol": "DOGEUSD", "action": "BUY", "crossedPrice": 0.09023, "stoploss": 0.09021, "takeProfit": 0.09223, "positionQuantity": 2}
+{"id": 1774984860372, "type": "READY", "received_at": "2026-03-31T19:21:00.372288+00:00", "symbol": "US500", "action": "BUY", "signalType": "READY", "crossedPrice": 6518.4, "stoploss": 6516.4, "takeProfit": 6538.4, "moveToBePrice": 6519.4, "positionQuantity": 2}

@@ -5,6 +5,11 @@
 //+------------------------------------------------------------------+
 bool ShouldMoveToBe(string action,double moveToBePrice,double bid, double ask)
   {
+   if(moveToBePrice == 0 || beIsTriggered)
+     {
+      //Print("No price set for BE conditions");
+      return false;
+     }
    if(action == "BUY")
      {
       if(bid >= moveToBePrice)
@@ -76,9 +81,10 @@ string ReadFile(string fileName)
 
    if(lastJson == "")
      {
-      Print("No valid JSON lines found");
+      //Print("No valid JSON lines found");
       return "";
      }
 
    return lastJson;
   }
+//+------------------------------------------------------------------+
