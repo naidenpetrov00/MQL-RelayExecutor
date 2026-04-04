@@ -1,4 +1,4 @@
-//+------------------------------------------------------------------+
+﻿//+------------------------------------------------------------------+
 //|                                        RelayExecutor_Helpers.mqh |
 //|                                  Copyright 2025, MetaQuotes Ltd. |
 //|                                             https://www.mql5.com |
@@ -22,6 +22,54 @@ bool ShouldMoveToBe(string action,double moveToBePrice,double bid, double ask)
             return true;
         }
    return false;
+  }
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void ApplyTPToAll(string symbol, double tp)
+  {
+   int total = PositionsTotal();
+
+   for(int i = 0; i < total; i++)
+     {
+      ulong ticket = PositionGetTicket(i);
+
+      if(!PositionSelectByTicket(ticket))
+         continue;
+
+      if(PositionGetString(POSITION_SYMBOL) != symbol)
+         continue;
+
+      double sl = PositionGetDouble(POSITION_SL);
+
+      if(trade.PositionModify(ticket, sl, tp))
+         Print("TP applied | Ticket=", ticket, " TP=", tp);
+      else
+         Print("TP apply failed | ", trade.ResultRetcodeDescription());
+     }
+  }
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void ApplyTP()
+  {
+   if(HasOpenPosition(pendingSymbol))
+     {
+      candlesSinceEntry++;
+
+      Print("New candle → candlesSinceEntry=", candlesSinceEntry);
+
+      if(pendingFirstCandleTpInvalid && !tpActivated)
+        {
+         if(candlesSinceEntry >= 1)
+           {
+            Print("Second candle → activating TP");
+
+            ApplyTPToAll(pendingSymbol, pendingTakeProfit);
+            tpActivated = true;
+           }
+        }
+     }
   }
 //+------------------------------------------------------------------+
 //|                                                                  |
