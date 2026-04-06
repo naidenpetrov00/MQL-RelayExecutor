@@ -1,1 +1,1 @@
-{"id": 1774984860372, "type": "READY", "received_at": "2026-03-31T19:21:00.372288+00:00", "symbol": "US500", "action": "BUY", "signalType": "READY", "crossedPrice": 6518.4, "stoploss": 6516.4, "takeProfit": 6538.4, "moveToBePrice": 6519.4, "positionQuantity": 2}
+{"id": 1775499538692, "type": "READY", "received_at": "2026-04-06T18:18:58.692881+00:00", "symbol": "US500", "action": "BUY", "signalType": "READY", "crossedPrice": 6602.9, "stoploss": 6600.8, "takeProfit": 6622.9, "moveToBePrice": 6603.9, "positionQuantity": 2, "firstCandleTpInvalid": true}

@@ -26,9 +26,17 @@ bool ShouldMoveToBe(string action,double moveToBePrice,double bid, double ask)
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
-void ApplyTPToAll(string symbol, double tp)
+void ApplyTPToN(string symbol, double tp, int positionsToApply)
   {
    int total = PositionsTotal();
+
+   if(positionsToApply <= 0)
+     {
+      Print("Invalid positionsToApply: ", positionsToApply);
+      return;
+     }
+
+   int applied = 0;
 
    for(int i = 0; i < total; i++)
      {
@@ -43,10 +51,21 @@ void ApplyTPToAll(string symbol, double tp)
       double sl = PositionGetDouble(POSITION_SL);
 
       if(trade.PositionModify(ticket, sl, tp))
+        {
+         applied++;
          Print("TP applied | Ticket=", ticket, " TP=", tp);
+        }
       else
+        {
          Print("TP apply failed | ", trade.ResultRetcodeDescription());
+        }
+
+      // Stop if we've applied enough
+      if(applied >= positionsToApply)
+         return;
      }
+
+   Print("Applied TP to ", applied, " positions (requested ", positionsToApply, ")");
   }
 //+------------------------------------------------------------------+
 //|                                                                  |
@@ -64,8 +83,8 @@ void ApplyTP()
          if(candlesSinceEntry >= 1)
            {
             Print("Second candle → activating TP");
-
-            ApplyTPToAll(pendingSymbol, pendingTakeProfit);
+            //Aply to the first position
+            ApplyTPToN(pendingSymbol, pendingTakeProfit, 1);
             tpActivated = true;
            }
         }
