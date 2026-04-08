@@ -72,7 +72,7 @@ void ApplyTPToN(string symbol, double tp, int positionsToApply)
 //+------------------------------------------------------------------+
 void ApplyTP()
   {
-   if(HasOpenPosition(pendingSymbol))
+   if(HasOpenPosition(pendingSymbol) && pendingFirstCandleTpInvalid)
      {
       candlesSinceEntry++;
 
